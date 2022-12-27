@@ -14,7 +14,7 @@ function cmds:GetCharacter(plr)
    return players:FindFirstChild(plr).Character or players:FindFirstChild(plr).CharacterAdded:Wait()
 end
 
-function cmds:PrimaryPart()
+function cmds:LocalPrimaryPart()
    return (LP.Character or LP.CharacterAdded:Wait()):FindFirstChildOfClass('Humanoid').PrimaryPart
 end
 
