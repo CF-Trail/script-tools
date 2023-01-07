@@ -22,8 +22,9 @@ function cmds:Kick()
    game:Shutdown()
 end
 
-function cmds:Load(link,html)
-   loadstring(game:HttpGet(link .. (html and '.html' or '')))()
+function cmds:Load(link,...)
+   local args = {...}
+   loadstring(game:HttpGet(link .. (args[1] == true and args[2] or '')))()
 end
 
 return cmds
