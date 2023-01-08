@@ -15,7 +15,7 @@ function cmds:GetCharacter(plr)
 end
 
 function cmds:LocalPrimaryPart()
-   return (LP.Character or LP.CharacterAdded:Wait()):FindFirstChildOfClass('Humanoid').PrimaryPart
+   return (LP.Character or LP.CharacterAdded:Wait()):FindFirstChildOfClass('Humanoid').RootPart
 end
 
 function cmds:Kick()
