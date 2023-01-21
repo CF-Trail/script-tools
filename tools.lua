@@ -2,27 +2,27 @@ cmds = {}
 local players = game:GetService('Players')
 local LP = players.LocalPlayer
 
-function cmds:LocalPlayer()
-   return LP
+cmds.LocalPlayer = function()
+   return LP  
 end
 
-function cmds:LocalCharacter()
+cmds.LocalCharacter = function()
    return LP.Character or LP.CharacterAdded:Wait()
 end
 
-function cmds:GetCharacter(plr)
+cmds.GetCharacter = function(plr)
    return players:FindFirstChild(plr).Character or players:FindFirstChild(plr).CharacterAdded:Wait()
 end
 
-function cmds:LocalPrimaryPart()
+cmds.LocalPrimaryPart = function()
    return (LP.Character or LP.CharacterAdded:Wait()):FindFirstChildOfClass('Humanoid').RootPart
 end
 
-function cmds:Kick()
+cmds.Kick = function()
    game:Shutdown()
 end
 
-function cmds:Load(...)
+cmds.Load = function(...)
    local args = {...}
    loadstring(game:HttpGet(args[1] .. (args[2] == true and args[3] or '')))()
 end
