@@ -37,16 +37,11 @@ function cmds.request(...)
        Method = args[2],
        if args[2] == "POST" then
        Headers = {
-           ["Content-Type"] = "application/json",
-           ["origin"] = "https://discord.com",
+               unpack(args[3])
        },
        Body = game:GetService("HttpService"):JSONEncode(
            {
-               ["args"] = {
-                   ["code"] = "CODE INVITE",
-               },
-               ["cmd"] = "INVITE_BROWSER",
-               ["nonce"] = "."
+              unpack(args[4])
      })
    end
 end
