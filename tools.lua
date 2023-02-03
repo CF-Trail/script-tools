@@ -29,20 +29,16 @@ function cmds.Load(...)
    loadstring(game:HttpGet(args[1] .. (args[2] == true and args[3] or '')))()
 end
 
-function cmds.request(...)
-   local args = {...}
-   return httprequest(
-   {
-       Url = args[1],
-       Method = args[2],
-       if args[2] == "POST" then
-       Headers = {
-               unpack(args[3])
-       },
-       Body = game:GetService("HttpService"):JSONEncode(
-           {
-              unpack(args[4])
-     })
+function cmds.UniversalRequest()
+   return httprequest
+end
+ 
+function cmds.RenameEvents()
+   local vv = 0
+   for i,v in next, game:GetDescendants() do
+      if (v:IsA('RemoteEvent') or v:IsA('RemoteFunction')) and v.Name == '' then
+         v.Name = 'RENAMEDREMOTE_' .. vv
+      end
    end
 end
 
