@@ -42,4 +42,8 @@ function cmds.RenameEvents()
    end
 end
 
+function cmds.Service(name)
+   return game:GetService(name)
+end
+
 return cmds
