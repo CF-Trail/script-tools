@@ -35,15 +35,15 @@ end
  
 function cmds.RenameEvents(name)
    local vv = 0
-   for i,v in next, game:GetDescendants() do
-      if (v:IsA('RemoteEvent') or v:IsA('RemoteFunction')) and v.Name == '' then
+   for i,v in next, game.GetDescendants(game) do
+      if (v.IsA(v,'RemoteEvent') or v.IsA(v,'RemoteFunction')) and v.Name == '' then
          v.Name = name .. '_' .. vv
       end
    end
 end
 
 function cmds.Service(name)
-   return game:GetService(name)
+   return game.GetService(game,name)
 end
 
 function cmds.owo()
