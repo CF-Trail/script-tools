@@ -33,17 +33,21 @@ function cmds.UniversalRequest()
    return httprequest
 end
  
-function cmds.RenameEvents()
+function cmds.RenameEvents(name)
    local vv = 0
    for i,v in next, game:GetDescendants() do
       if (v:IsA('RemoteEvent') or v:IsA('RemoteFunction')) and v.Name == '' then
-         v.Name = 'RENAMEDREMOTE_' .. vv
+         v.Name = name .. '_' .. vv
       end
    end
 end
 
 function cmds.Service(name)
    return game:GetService(name)
+end
+
+function cmds.owo()
+   return 'uwu'   
 end
 
 return cmds
