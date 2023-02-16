@@ -50,4 +50,10 @@ function cmds.owo()
    return 'uwu'   
 end
 
+function cmds.Chat(msg)
+  if game:GetService('ReplicatedStorage'):FindFirstChild('DefaultChatSystemChatEvents') and game:GetService('ReplicatedStorage'):FindFirstChild('DefaultChatSystemChatEvents'):FindFirstChild('SayMessageRequest') then
+      game:GetService('ReplicatedStorage'):FindFirstChild('DefaultChatSystemChatEvents').SayMessageRequest:FireServer(msg,'All')
+  end
+end
+
 return cmds
