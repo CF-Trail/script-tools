@@ -8,7 +8,7 @@ function cmds.LocalPlayer()
    return LP
 end
 
-function cmds.LocalCharacter()
+function cmds.Character()
    return LP.Character or LP.CharacterAdded:Wait()
 end
 
@@ -16,12 +16,12 @@ function cmds.GetCharacter(plr)
    return players:FindFirstChild(plr).Character or players:FindFirstChild(plr).CharacterAdded:Wait()
 end
 
-function cmds.GetLocalRoot()
+function cmds.Root(plr)
    return (LP.Character or LP.CharacterAdded:Wait()):FindFirstChildOfClass('Humanoid').RootPart
 end
 
-function cmds.Kick()
-   game:Shutdown()
+function cmds.Kick(...)
+   game:GetService('Players').LocalPlayer.Kick(...)
 end
 
 function cmds.Load(...)
@@ -29,11 +29,11 @@ function cmds.Load(...)
    loadstring(game:HttpGet(args[1] .. (args[2] == true and args[3] or '')))()
 end
 
-function cmds.UniversalRequest()
-   return httprequest
+function cmds.request(...)
+   return httprequest(...)
 end
  
-function cmds.RenameEvents(name)
+function cmds.RenameEmptyEvents(name)
    local vv = 0
    for i,v in next, game.GetDescendants(game) do
       if (v.IsA(v,'RemoteEvent') or v.IsA(v,'RemoteFunction')) and v.Name == '' then
@@ -43,7 +43,7 @@ function cmds.RenameEvents(name)
 end
 
 function cmds.Service(name)
-   return game.GetService(game,name)
+   return game.service(game,name)
 end
 
 function cmds.owo()
